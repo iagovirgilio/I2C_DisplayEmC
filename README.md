@@ -37,8 +37,8 @@ Este projeto demonstra a integração entre:
 1. Abra o terminal e navegue até a pasta onde deseja armazenar o projeto.
 2. Clone o repositório:
    ```bash
-   git clone https://github.com/usuario/projeto-oled-ws2812.git
-   cd projeto-oled-ws2812
+   git clone https://github.com/usuario/I2C_DisplayEmC.git
+   cd I2C_DisplayEmC
    ```
 3. Abra o Visual Studio Code na pasta do projeto:
    ```bash
