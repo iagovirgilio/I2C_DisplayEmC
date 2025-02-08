@@ -44,9 +44,14 @@ pico_set_program_version(DisplayC "0.1")
 pico_enable_stdio_uart(DisplayC 1)
 pico_enable_stdio_usb(DisplayC 1)
 
+# Generate PIO header
+pico_generate_pio_header(DisplayC ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio)
+
 # Add the standard library to the build
 target_link_libraries(DisplayC
-        pico_stdlib)
+        pico_stdlib
+        hardware_pio
+        hardware_pwm)
 
 # Add the standard include files to the build
 target_include_directories(DisplayC PRIVATE
