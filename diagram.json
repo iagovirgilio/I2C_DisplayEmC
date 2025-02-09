@@ -1,31 +1,77 @@
 {
-    "version": 1,
-    "author": "Wilton Lacerda Silva",
-    "editor": "wokwi",
-    "parts": [
-      {
-        "type": "board-pi-pico-w",
-        "id": "pico",
-        "top": 0,
-        "left": 0,
-        "attrs": { "builder": "pico-sdk" }
-      },
-      {
-        "type": "board-ssd1306",
-        "id": "oled1",
-        "top": 204.74,
-        "left": -114.97,
-        "attrs": { "i2cAddress": "0x3c" }
-      },
-      { "type": "wokwi-vcc", "id": "vcc1", "top": 163.96, "left": -115.2, "attrs": {} }
-    ],
-    "connections": [
-      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
-      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-      [ "pico:GP15", "oled1:SCL", "green", [ "h0" ] ],
-      [ "pico:GP14", "oled1:SDA", "blue", [ "h0" ] ],
-      [ "pico:GND.4", "oled1:GND", "black", [ "h0" ] ],
-      [ "vcc1:VCC", "oled1:VCC", "red", [ "v9.6", "h38.4" ] ]
-    ],
-    "dependencies": {}
-  }
+  "version": 1,
+  "author": "Wilton Lacerda Silva",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 204.74,
+      "left": -114.97,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 163.96, "left": -115.2, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -41.8,
+      "left": -144,
+      "attrs": { "color": "black" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 15.8,
+      "left": -144,
+      "attrs": { "color": "black" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -3.6, "left": 119, "attrs": { "color": "blue" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -70.8,
+      "left": 119,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -34.45,
+      "left": 163.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 32.75,
+      "left": 163.2,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP15", "oled1:SCL", "green", [ "h0" ] ],
+    [ "pico:GP14", "oled1:SDA", "blue", [ "h0" ] ],
+    [ "pico:GND.4", "oled1:GND", "black", [ "h0" ] ],
+    [ "vcc1:VCC", "oled1:VCC", "red", [ "v9.6", "h38.4" ] ],
+    [ "btn2:1.r", "pico:GP6", "gold", [ "v0", "h38.6", "v57.6" ] ],
+    [ "btn1:1.r", "pico:GP5", "gold", [ "v0", "h48.2", "v105.6" ] ],
+    [ "pico:GND.3", "btn2:2.l", "black", [ "h-159.65", "v-80.05" ] ],
+    [ "btn1:2.l", "btn2:2.l", "black", [ "h-9.6", "v57.8" ] ],
+    [ "r2:1", "led1:A", "green", [ "v0" ] ],
+    [ "r1:1", "led2:A", "green", [ "v0", "h-28.8" ] ],
+    [ "pico:GP12", "r2:2", "green", [ "h-130.85", "v140.79", "h364.8", "v-48" ] ],
+    [ "pico:GP11", "r1:2", "green", [ "h-140.45", "v159.95", "h384", "v-336" ] ],
+    [ "pico:GND.8", "led1:C", "black", [ "h32.66", "v6.35" ] ],
+    [ "led2:C", "led1:C", "black", [ "v0", "h-18.8", "v67.2" ] ]
+  ],
+  "dependencies": {}
+}
