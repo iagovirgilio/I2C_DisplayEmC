@@ -54,6 +54,10 @@ Este projeto demonstra a integração entre:
 6. **Gravar no Pico:** Conecte seu Raspberry Pi Pico em modo bootsel (segure BOOTSEL e plugue o cabo USB). O dispositivo aparecerá como uma unidade de disco. Arraste o arquivo `.uf2` gerado para essa unidade.
 7. **Teste:** Abra o Serial Monitor do VSCode (Shift+Ctrl+P > Pico: Open Serial Monitor) ou outra interface serial para enviar caracteres e observar as mensagens no display SSD1306 e na matriz WS2812.
 
+## Demonstração no YouTube
+
+Confira a demonstração completa deste projeto no YouTube: [Demonstração do Projeto]( https://youtu.be/BJ7J5YY7K6A?si=E8VwPDCK6p93ivvv )
+
 ## Conexões de Hardware
 - **Display SSD1306:**
   - SDA -> GPIO 14
